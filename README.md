@@ -8,8 +8,11 @@ It has the function of creating a To-Do list in which new items can be added thr
 
 ## How to install the project
 
-Create a virtual env and install the next libraries  
+1. Create a general folder for the project. 
+2. Create a virtual env inside the project folder
+3. Install the next libraries inside the virtual env via PIP
 
+- python==3.10.6
 - asgiref==3.6.0
 - Django==4.1.5
 - djangorestframework==3.14.0
@@ -19,7 +22,32 @@ Create a virtual env and install the next libraries
 - sqlparse==0.4.3
 - tzdata==2022.7
 
-On your project location run the command: 
+4. Clone the current repository
+5. Activate the virtual env inside your project folder and run the next command on the terminal. This will deploy the project locally
 ```
 python manage.py runserver 
 ```
+
+## All features
+
+Create user
+
+Login user
+
+Configuration of the list and linking of the mail calendars.
+
+List of the day's activities with meetings and tasks from all calendars.
+- Create new item 
+- Delete existing item
+- Modify existing item
+- The items of the calendars are not modifiable and are of different colors depending on the e-mail service they come from.
+
+Pop-up notifications of the next task or meeting that has an assigned time.
+
+## Features until date
+
+CRUD API for user registration
+
+## Postman test collection 
+
+
