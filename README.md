@@ -20,6 +20,6 @@ sqlparse==0.4.3
 tzdata==2022.7
 
 On your project location run the command: 
-'''
+```
 python manage.py runserver 
-'''
+```
