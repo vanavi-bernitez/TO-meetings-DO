@@ -10,14 +10,14 @@ It has the function of creating a To-Do list in which new items can be added thr
 
 Create a virtual env and install the next libraries  
 
-asgiref==3.6.0
-Django==4.1.5
-djangorestframework==3.14.0
-psycopg2==2.9.5
-psycopg2-binary==2.9.5
-pytz==2022.7.1
-sqlparse==0.4.3
-tzdata==2022.7
+- asgiref==3.6.0
+- Django==4.1.5
+- djangorestframework==3.14.0
+- psycopg2==2.9.5
+- psycopg2-binary==2.9.5
+- pytz==2022.7.1
+- sqlparse==0.4.3
+- tzdata==2022.7
 
 On your project location run the command: 
 ```
