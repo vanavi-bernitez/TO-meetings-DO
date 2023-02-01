@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,6 +29,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+#first dic value comes from
+# https://python.plainenglish.io/django-custom-user-model-and-auth-using-jwt-simple-boilerplate-6acd78bf7767
+
 
 # Application definition
 
@@ -40,6 +45,18 @@ INSTALLED_APPS = [
     'rest_framework',
     'users',
 ]
+
+# 'users.my_authentication.JWTauth',
+REST_FRAMEWORK = {
+'DEFAULT_AUTHENTICATION_CLASSES': [
+     'users.backends.JWTAuthentication',
+    ]
+}
+
+# SIMPLE_JWT = {
+#     'AUTH_HEADER_TYPES': ('JWT',),
+# }
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -116,6 +133,10 @@ USE_I18N = True
 
 USE_TZ = True
 
+# JWT
+env = environ.Env()
+environ.Env.read_env()
+JWT_SECRET_KEY = env('JWT_SECRET_KEY')
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
