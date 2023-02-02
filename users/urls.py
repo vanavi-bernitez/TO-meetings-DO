@@ -9,4 +9,3 @@ urlpatterns = [
     
     # path('item/<int:pk>/', UserDetail.as_view()),                                                                 
 ]
-
