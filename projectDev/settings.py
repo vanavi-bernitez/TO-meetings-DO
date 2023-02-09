@@ -42,14 +42,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "corsheaders",
     'rest_framework',
     'users',
 ]
 
-# 'users.my_authentication.JWTauth',
+
 REST_FRAMEWORK = {
 'DEFAULT_AUTHENTICATION_CLASSES': [
-     'users.backends.JWTAuthentication',
+    'users.backends.JWTAuthentication',
     ]
 }
 
@@ -61,6 +62,7 @@ REST_FRAMEWORK = {
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -69,11 +71,37 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'projectDev.urls'
+CORS_URLS_REGEX = r'^.*$'
+CORS_ALLOWED_ORIGINS = []
+
+if DEBUG:
+    CORS_ALLOWED_ORIGINS += [
+        'http://localhost:8111',
+        'https://localhost:8111',
+    ]
+
+CORS_ALLOW_HEADERS = [
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+]
+
+
+CORS_EXPOSE_HEADERS = [
+    "content-type",
+]
+
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
