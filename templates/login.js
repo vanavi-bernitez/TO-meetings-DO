@@ -20,12 +20,17 @@ function handleLogin(event) {
         headers: {
             "Content-Type": "application/json"
         },
-        body: bodyStr,
-        redirect: follow
+        body: bodyStr
     }
     fetch(loginEndpoint, options)
     .then(response=>{
-        window.location.reload()
+        if(response.status == 200){
+            window.location.replace("dashboard.html")
+        }
+        else {
+            window.location.replace("login.html")
+        }
+        // window.location.reload()
         console.log(response)
         return response.json()
     })
